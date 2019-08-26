@@ -1,0 +1,1 @@
+/home/LDAP/preslerks/devel/fsharplibs/XPlot/.paket/Paket.Restore.targets(120,5): error MSB3073: выход из команды "mono --runtime=v4.0.30319 "/home/LDAP/preslerks/devel/fsharplibs/XPlot/.paket/paket.exe" restore" с кодом 127. [/home/LDAP/preslerks/devel/fsharplibs/XPlot/src/XPlot.D3/XPlot.D3.fsproj]
