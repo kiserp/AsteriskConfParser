@@ -1,6 +1,7 @@
 namespace AsteriskConfigParser
 
 open System
+open System.Text.RegularExpressions
 
 module public AsteriskDialplanObjects =
     type ExtensionAction = {Priority: string;
@@ -85,7 +86,7 @@ module public AsteriskDialplanObjects =
         | idx when idx > -1 ->
             paramString.[idx+1..].Split(":")
             |> Array.toList
-            |> List.map( fun variant -> GetContextLinkFromGoto variant)
+            |> List.map GetContextLinkFromGoto
         | _ -> ["",""]
 
     let GetContextLink (app: string)  paramString =
@@ -94,10 +95,26 @@ module public AsteriskDialplanObjects =
         | "gotoif" -> GetContextLinkFromGotoIf paramString
         | _        -> []
 
+    let rec ConjugateNumberVariants prefix variants postfix resultList : string list  = 
+        match variants with
+        | [] -> resultList
+        | head::tail -> ConjugateNumberVariants prefix tail postfix ((prefix + head + postfix) :: resultList) 
+
+    let rec ParseExtenstionWildCard (extenName: string) = 
+        let digitGrops = Regex.Match(extenName, "^(_?\\S*)\\[(\\d+)\\](\\S*)").Groups |> Seq.toList
+        let GetVariants = function 
+            | "" -> [""]
+            | str -> str |> Seq.toList |> List.map(fun ch -> ch.ToString() )
+        match digitGrops  with 
+        | [] -> [extenName]
+        | [_;prefix;variants;postfix] -> ConjugateNumberVariants prefix.Value (variants.Value |> GetVariants)  postfix.Value [] |> List.collect  ParseExtenstionWildCard
+        | _ -> [extenName]
+            // 
+
     let GetExtenStionsFromOneLines (oneLines: ExtensionOneLine list) =
         oneLines
         |> List.groupBy( fun x -> x.ContextName, x.Name)
-        |> List.map( fun grp ->
+        |> List.collect( fun grp ->
                         let (context, extension), oneLines = grp
                         let actions =
                             oneLines
@@ -110,11 +127,14 @@ module public AsteriskDialplanObjects =
                             actions
                             |> List.collect(
                                 fun act -> GetContextLink act.App act.AppParams)
-                        {Name = extension;
-                         ContextName = context;
-                         Actions = actions;
-                         ContextExtenLinks = ctxLinks
-                        } )
+                        ParseExtenstionWildCard extension 
+                        |> List.map (fun exteName -> 
+                            {Name = exteName;
+                             ContextName = context;
+                             Actions = actions;
+                             ContextExtenLinks = ctxLinks
+                            } ))
+        
 
 
     let GetContextsFromExtensions extensions =
@@ -127,4 +147,4 @@ module public AsteriskDialplanObjects =
 
     // let MakeContext ContextFirstLine lines =
     //     let ctxName = ContextFirstLine.Trim([|'[', ']'|])
-    //     let extensions = LinesToExtension lines contefedoraxt
+    //     let extensions = LinesToExtension lines contefedoraxtq
