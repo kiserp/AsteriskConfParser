@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kiserp/devel/git/AsteriskConfParser/AsteriskConfParser.fsproj": {}
+  },
+  "projects": {
+    "/home/kiserp/devel/git/AsteriskConfParser/AsteriskConfParser.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kiserp/devel/git/AsteriskConfParser/AsteriskConfParser.fsproj",
+        "projectName": "AsteriskConfParser",
+        "projectPath": "/home/kiserp/devel/git/AsteriskConfParser/AsteriskConfParser.fsproj",
+        "packagesPath": "/home/kiserp/.nuget/packages/",
+        "outputPath": "/home/kiserp/devel/git/AsteriskConfParser/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/kiserp/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.6.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

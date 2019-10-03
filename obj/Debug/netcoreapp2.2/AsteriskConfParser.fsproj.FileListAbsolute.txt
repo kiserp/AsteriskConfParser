@@ -1,0 +1,10 @@
+/home/kiserp/devel/git/AsteriskConfParser/obj/Debug/netcoreapp2.2/AsteriskConfParser.fsprojAssemblyReference.cache
+/home/kiserp/devel/git/AsteriskConfParser/obj/Debug/netcoreapp2.2/AsteriskConfParser.AssemblyInfoInputs.cache
+/home/kiserp/devel/git/AsteriskConfParser/obj/Debug/netcoreapp2.2/AsteriskConfParser.AssemblyInfo.fs
+/home/kiserp/devel/git/AsteriskConfParser/bin/Debug/netcoreapp2.2/AsteriskConfParser.deps.json
+/home/kiserp/devel/git/AsteriskConfParser/bin/Debug/netcoreapp2.2/AsteriskConfParser.runtimeconfig.json
+/home/kiserp/devel/git/AsteriskConfParser/bin/Debug/netcoreapp2.2/AsteriskConfParser.runtimeconfig.dev.json
+/home/kiserp/devel/git/AsteriskConfParser/bin/Debug/netcoreapp2.2/AsteriskConfParser.dll
+/home/kiserp/devel/git/AsteriskConfParser/bin/Debug/netcoreapp2.2/AsteriskConfParser.pdb
+/home/kiserp/devel/git/AsteriskConfParser/obj/Debug/netcoreapp2.2/AsteriskConfParser.dll
+/home/kiserp/devel/git/AsteriskConfParser/obj/Debug/netcoreapp2.2/AsteriskConfParser.pdb
